@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 dotenv.config();
 
-// CONFIG = {
+// config = {
 //   server: "ABHISHEK-PC",
 //   database: "testingDB",
 //   user: "sa",
