@@ -12,16 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 dotenv.config();
 
-// config = {
-//   server: "ABHISHEK-PC",
-//   database: "testingDB",
-//   user: "sa",
-//   password: "abhi!2023",
-//   options: {
-//     trustServerCertificate: true,
-//   },
-// };
-
 const config = {
   server: process.env.SERVER,
   database: process.env.DATABASE,
