@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import sql from "mssql";
 import bodyParser from "body-parser";
+import dotenv from "dotenv";
 
 const app = express();
 app.use(express.json());
@@ -9,11 +10,23 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+dotenv.config();
+
+// CONFIG = {
+//   server: "ABHISHEK-PC",
+//   database: "testingDB",
+//   user: "sa",
+//   password: "abhi!2023",
+//   options: {
+//     trustServerCertificate: true,
+//   },
+// };
+
 const config = {
-  server: "ABHISHEK-PC",
-  database: "testingDB",
-  user: "sa",
-  password: "abhi!2023",
+  server: process.env.SERVER,
+  database: process.env.DATABASE,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
   options: {
     trustServerCertificate: true,
   },
@@ -164,7 +177,8 @@ connectToDB();
 
 // closeConnection();
 
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
+// const port = 3000;
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server is listening on port ${process.env.PORT}`);
 });
