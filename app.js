@@ -6,9 +6,9 @@ import dotenv from "dotenv";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 dotenv.config();
 
@@ -17,9 +17,7 @@ const config = {
   database: process.env.DATABASE,
   user: process.env.USER,
   password: process.env.PASSWORD,
-  options: {
-    trustServerCertificate: true,
-  },
+  trustServerCertificate: true,
 };
 
 const connectToDB = async () => {
